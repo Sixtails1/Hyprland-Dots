@@ -250,22 +250,20 @@ printf "\n"
 
 # Action to do for better rofi and kitty appearance
 while true; do
-  echo "$MAGENTA Select monitor resolution to properly configure appearance and fonts:"
-  echo "$YELLOW   -- Enter 1. for monitor res 1440p or less (< 1440p)"
-  echo "$YELLOW   -- Enter 2. for monitors res higher than 1440p (≥ 1440p)"
-  read -p "$CAT Enter the number of your choice (1 or 2): " res_choice
+  echo "${MAGENTA} Select monitor resolution to properly configure appearance and fonts"
+  read -p "${CAT} Is your monitor resolution less than 1440p? (y/n): " res_choice
 
   case $res_choice in
-    1)
+    [Yy])
         resolution="< 1440p"
         break
         ;;
-    2)
+    [Nn])
         resolution="≥ 1440p"
         break
         ;;
     *)
-        echo "${ERROR} Invalid choice. Please enter 1 for < 1440p or 2 for ≥ 1440p."
+        echo "${ERROR} Please enter either 'y' or 'n'."
         ;;
   esac
 done
